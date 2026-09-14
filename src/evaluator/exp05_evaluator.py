@@ -53,7 +53,9 @@ class Exp05Evaluator(BaseEvaluator):
         # full_text for each section so students with non-standard formatting
         # still receive credit.
         full_text = parsed.text_sections.get("full_text", "")
-        if not full_text and parsed.text_sections:
+        if not full_text and getattr(parsed, "raw_text", ""):
+            full_text = parsed.raw_text
+        elif not full_text and parsed.text_sections:
             full_text = "\n".join(parsed.text_sections.values())
 
         def _section_or_full(key: str) -> str:

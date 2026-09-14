@@ -126,9 +126,9 @@ def resolve_evaluator(
         from src.evaluator.generic_evaluator import GenericMemoEvaluator
         return GenericMemoEvaluator(memo_pdf, target_max_score=max_score), "generic"
         
-    if assignment_id == EXP05_ASSIGNMENT_ID:
+    if assignment_id in (EXP05_ASSIGNMENT_ID, 316696):
         return Exp05Evaluator(target_max_score=20.0), "exp05"
-    elif assignment_id == EXP06_ASSIGNMENT_ID:
+    elif assignment_id in (EXP06_ASSIGNMENT_ID, 316843):
         return Exp06Evaluator(target_max_score=20.0), "exp06"
     elif assignment_id == LAB3_PART_A_ASSIGNMENT_ID:
         return Lab3PartAEvaluator(target_max_score=7.0), "lab3_part_a"
@@ -581,7 +581,7 @@ def run_grading_pipeline(args: argparse.Namespace) -> int:
                     try:
                         extracted: ExtractedSubmission | None = None
 
-                        if aid in (EXP05_ASSIGNMENT_ID, EXP06_ASSIGNMENT_ID):
+                        if aid in (EXP05_ASSIGNMENT_ID, EXP06_ASSIGNMENT_ID, 316696, 316843):
                             # Laboratory report PDF
                             if attachments:
                                 pdf_url = attachments[0]["url"]

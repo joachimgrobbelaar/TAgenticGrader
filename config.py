@@ -52,6 +52,22 @@ EXP06_MEMO_PATH: str = "/home/m/Downloads/Exp06 - Thin Lenses - Memo.pdf"
 LAB3_MEMO_PATH: str = "/home/m/Downloads/lab3_online_worksheet_memo.pdf"
 
 ASSIGNMENTS: dict[int, AssignmentConfig] = {
+    316696: AssignmentConfig(
+        id=316696,
+        name="EXP 05: Thermal Expansion - Group1's (Mon1-Fri1)",
+        points_possible=20.0,
+        submission_types=["online_upload"],
+        memo_path="artifacts/memos/exp05_memo.pdf",
+        speedgrader_url=f"{BASE_URL}/courses/{COURSE_ID}/gradebook/speed_grader?assignment_id=316696",
+    ),
+    316843: AssignmentConfig(
+        id=316843,
+        name="EXP 06: Thin Spherical Lenses - Group1's (Mon1-Fri1)",
+        points_possible=20.0,
+        submission_types=["online_upload"],
+        memo_path="artifacts/memos/exp06_memo.pdf",
+        speedgrader_url=f"{BASE_URL}/courses/{COURSE_ID}/gradebook/speed_grader?assignment_id=316843",
+    ),
     EXP05_ASSIGNMENT_ID: AssignmentConfig(
         id=EXP05_ASSIGNMENT_ID,
         name="EXP 05: Thermal Expansion - Group2's (Mon2-Fri2)",

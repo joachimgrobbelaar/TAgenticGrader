@@ -46,9 +46,16 @@ class Exp06Evaluator(BaseEvaluator):
                 text_sections={"full_text": str(submission)},
             )
 
-        text = parsed.text_sections.get("full_text", "")
-        if not text and parsed.text_sections:
-            text = "\n".join(parsed.text_sections.values())
+        # --- LENIENT FALLBACK ---
+        # If section-specific keys are empty but full_text exists, search
+        # full_text for each section so students with non-standard formatting
+        # still receive credit.
+        full_text = parsed.text_sections.get("full_text", "")
+        if not full_text and getattr(parsed, "raw_text", ""):
+            full_text = parsed.raw_text
+        elif not full_text and parsed.text_sections:
+            full_text = "\n".join(parsed.text_sections.values())
+        text = full_text
 
         if not text.strip():
             return EvaluationResult(
