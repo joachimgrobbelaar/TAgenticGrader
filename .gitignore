@@ -5,7 +5,27 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .env
+*.env
 venv/
 env/
+.venv/
 artifacts/
 *.log
+# LaTeX build artifacts
+*.aux
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+# Submissions / student data (never commit)
+submissions/
+downloads/
+student_data/
+*.pdf
+# Output reports
+reports/
+output/
+
